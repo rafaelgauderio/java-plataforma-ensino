@@ -22,7 +22,9 @@ public class Course {
 		private String name;
 		private String imgUri;
 		private String imgGrayUri;
-	
+		
+		@OneToMany(mappedBy = "course")
+		private List<Offer> offers = new ArrayList<Offer>();
 
 		public Course() {
 		}
@@ -55,14 +57,21 @@ public class Course {
 		public String getImgGrayUri() {
 			return imgGrayUri;
 		}
+		
 		public void setImgGrayUri(String imgGrayUri) {
 			this.imgGrayUri = imgGrayUri;
-		}
+		}			
 
-		public List<Offer> getOffers() {
+		public List<Offer> getOffer() {
 			return offers;
 		}
-
+		
+		/*
+		public void setOffer(List<Offer> offers) {
+			this.offers = offers;
+		}
+		*/
+		
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -85,7 +94,6 @@ public class Course {
 			} else if (!id.equals(other.id))
 				return false;
 			return true;
-		}
-	}
+		}	
 
 }
