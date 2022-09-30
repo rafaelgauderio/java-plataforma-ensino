@@ -24,3 +24,12 @@ INSERT INTO tb_offer(edition, start_Moment, end_Moment, course_id)
 VALUES (3.0, TIMESTAMP WITH TIME ZONE '2023-12-20T04:00:00Z', TIMESTAMP WITH TIME ZONE '2024-12-20T04:00:00Z',1);
 INSERT INTO tb_offer(edition, start_Moment, end_Moment, course_id)
 VALUES (1.0, TIMESTAMP WITH TIME ZONE '2022-10-20T04:00:00Z', TIMESTAMP WITH TIME ZONE '2023-10-20T04:00:00Z',2);
+
+INSERT INTO tb_resource(title, description, position, img_Uri, type, offer_id )
+VALUES ('Trilha','Aulas gravadas',1,'https://educacaocientifica.com/educacao/wp-content/uploads/2019/01/videoaula.jpg',0,1);
+
+INSERT INTO tb_resource(title, description, position, img_Uri, type, offer_id )
+VALUES ('Manuais','Tutoriais em texto',2,'https://educacaocientifica.com/educacao/wp-content/uploads/2019/01/videoaula.jpg',1,1);
+
+INSERT INTO tb_resource(title, description, position, img_Uri, type, offer_id )
+VALUES ('Fórum','Tire suas dúvidas',3,'https://educacaocientifica.com/educacao/wp-content/uploads/2019/01/videoaula.jpg',2,1);
