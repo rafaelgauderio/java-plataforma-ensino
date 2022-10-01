@@ -33,3 +33,15 @@ VALUES ('Manuais','Tutoriais em texto',2,'https://educacaocientifica.com/educaca
 
 INSERT INTO tb_resource(title, description, position, img_Uri, type, offer_id )
 VALUES ('Fórum','Tire suas dúvidas',3,'https://educacaocientifica.com/educacao/wp-content/uploads/2019/01/videoaula.jpg',2,1);
+
+INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id)
+VALUES ('Capítulo 1','Introducação ao Java', 1, 'https://educacaocientifica.com/educacao/wp-content/uploads/2019/01/videoaula.jpg',1, null);  
+INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id)
+VALUES ('Capítulo 2','Orientação a Objetos com java', 2, 'https://educacaocientifica.com/educacao/wp-content/uploads/2019/01/videoaula.jpg',1, 1);
+INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id)
+VALUES ('Capítulo 3','Métodos Construtores', 3, 'https://educacaocientifica.com/educacao/wp-content/uploads/2019/01/videoaula.jpg',1,2);  
+INSERT INTO tb_section(title, description, position, img_Uri, resource_id, prerequisite_id)
+VALUES ('Capítulo 4','Métodos getters and Setters', 4, 'https://educacaocientifica.com/educacao/wp-content/uploads/2019/01/videoaula.jpg',1,3);
+
+  
+
