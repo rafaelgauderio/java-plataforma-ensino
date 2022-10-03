@@ -29,6 +29,7 @@ public class Enrollment implements Serializable {
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant refundMomment;
+	
 	private boolean available;
 	private boolean onlyUpdate;
 	
@@ -47,7 +48,17 @@ public class Enrollment implements Serializable {
 		this.available = available;
 		this.onlyUpdate = onlyUpdate;
 	}
-
+	
+	public Enrollment(User user, Offer offer, Instant enrollMoment, Instant refundMomment, boolean available,
+			boolean onlyUpdate) {
+		super();
+		id.setUser(user);
+		id.setOffer(offer);
+		this.enrollMoment = enrollMoment;
+		this.refundMomment = refundMomment;
+		this.available = available;
+		this.onlyUpdate = onlyUpdate;
+	}
 
 
 	public EnrollmentPrimaryKey getId() {
@@ -57,6 +68,23 @@ public class Enrollment implements Serializable {
 	public void setId(EnrollmentPrimaryKey id) {
 		this.id = id;
 	}
+	
+	public User getStudent() {
+		return id.getUser();
+	}
+	
+	public void setStudent(User user) {
+		id.setUser(user);
+	}
+	
+	public Offer getOffer () {
+		return id.getOffer();
+	}
+	
+	public void setOffer (Offer offer) {
+		id.setOffer(offer);
+	}
+	
 
 	public Instant getEnrollMoment() {
 		return enrollMoment;
