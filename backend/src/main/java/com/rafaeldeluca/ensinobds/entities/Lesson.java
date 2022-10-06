@@ -5,6 +5,18 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /*SuperClasse Lesson (aula)
 Lesson abstract, pois ele vai ser ter que ser ou uma Task (tarefa) ou Content.
 Content e Task vão ter o mesmo id da Lesson correspondente. Herdam o atributo id da classe Lesson
@@ -14,17 +26,32 @@ Herança no bando de dados relacional tem que informar se vai informar com tipos
 	vários campos com NULL das classes diferentes. Ou em tabelas diferentes (JOINED) e relacionar as tabelas com chaves estrangeriras
 	joinColumns vai ser a Chave estrangeira da classe que se estou usando
 */
-
+@Entity
+@Table(name = "tb_lesson")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Lesson implements Serializable{
 	
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
 	private Integer position;
 	
+	@ManyToOne
+	@JoinColumn(name = "section_id")
 	private Section section;
+	
+	// A tabela tb_lessons_done vai ser formada por 3 atributos (3 chaves estrangeiras)
+	
+	@ManyToMany
+	@JoinTable(name = "tb_lessons_done",
+		joinColumns = @JoinColumn( name = "lesson_id"),
+		inverseJoinColumns = { @JoinColumn(name = "user_id"), @JoinColumn(name ="offer_id")
+		}
+	)
 	
 	private Set<Enrollment> enrollmentsDone = new HashSet<Enrollment>();
 	
