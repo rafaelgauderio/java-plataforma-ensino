@@ -9,7 +9,7 @@ public class Content extends Lesson {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String textContext;
+	private String textContent;
 	private String videoUri;
 	
 	public Content () {
@@ -18,16 +18,16 @@ public class Content extends Lesson {
 	
 	public Content(Long id, String title, Integer position, Section section, String textContent, String videoUri) {
 		super(id, title, position, section);
-		this.textContext= textContent;
+		this.textContent= textContent;
 		this.videoUri = videoUri;
 	}
 
-	public String getTextContext() {
-		return textContext;
+	public String getTextContent() {
+		return textContent;
 	}
 
-	public void setTextContext(String textContext) {
-		this.textContext = textContext;
+	public void setTextContent(String textContext) {
+		this.textContent = textContext;
 	}
 
 	public String getVideoUri() {

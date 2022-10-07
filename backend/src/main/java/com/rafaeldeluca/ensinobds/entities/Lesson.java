@@ -53,6 +53,7 @@ public abstract class Lesson implements Serializable{
 		}
 	)
 	
+	
 	private Set<Enrollment> enrollmentsDone = new HashSet<Enrollment>();
 	
 	public Lesson () {
