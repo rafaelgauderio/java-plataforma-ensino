@@ -85,10 +85,13 @@ public class User implements Serializable {
 	public Set<Role> getRoles() {
 		return roles;
 	}
-
+	
+	/* Não criar métodos set para coleções. Vao adicionando itens as coleções
+	 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+	*/
 
 
 
