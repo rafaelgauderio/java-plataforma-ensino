@@ -86,3 +86,11 @@ O author não pode dar like em seu próprio topico
 */
 INSERT INTO tb_topic_likes (topic_id, user_id) VALUES (1, 2);
 INSERT INTO tb_topic_likes (topic_id, user_id) VALUES (2, 1);
+
+
+INSERT INTO tb_reply (body, moment, topic_id, author_id ) VALUES ('Tente mudar a versão do Java para 17', TIMESTAMP WITH TIME ZONE '2022-12-20T17:00:00Z',1,1);
+INSERT INTO tb_reply (body, moment, topic_id, author_id ) VALUES ('Tente mudar a versão do Spring Boot para 2.4.4', TIMESTAMP WITH TIME ZONE '2022-12-21T17:00:00Z',1,1);
+INSERT INTO tb_reply (body, moment, topic_id, author_id ) VALUES ('Valeu meu querido, agora compilou o código', TIMESTAMP WITH TIME ZONE '2022-12-23T17:00:00Z',1,2);
+
+INSERT INTO tb_reply_likes (reply_id, user_id) VALUES (2,2);
+
