@@ -40,6 +40,9 @@ public class Offer implements Serializable{
 	@OneToMany(mappedBy = "offer")
 	private List<Resource> resources= new ArrayList<Resource>();
 	
+	@OneToMany(mappedBy = "offer")
+	private List<Topic> topics = new ArrayList<>();	
+	
 	public Offer () {
 		
 	}
@@ -101,6 +104,15 @@ public class Offer implements Serializable{
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+
+	public List<Resource> getResources() {
+		return resources;
+	}
+
+
+	public List<Topic> getTopics() {
+		return topics;
 	}
 
 
