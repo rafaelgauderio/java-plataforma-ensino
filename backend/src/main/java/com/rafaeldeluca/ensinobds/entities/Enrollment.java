@@ -2,13 +2,16 @@ package com.rafaeldeluca.ensinobds.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.rafaeldeluca.ensinobds.entities.pk.EnrollmentPrimaryKey;
@@ -38,6 +41,9 @@ public class Enrollment implements Serializable {
 	
 	@ManyToMany(mappedBy = "enrollmentsDone")
 	private Set<Lesson> lessonsDone = new HashSet<Lesson> ();
+	
+	@OneToMany(mappedBy = "enrollment")
+	private List<Deliver> delivers = new ArrayList<Deliver>();
 	
 	public Enrollment () {
 		
@@ -124,6 +130,18 @@ public class Enrollment implements Serializable {
 		this.onlyUpdate = onlyUpdate;
 	}
 
+	
+
+	public List<Deliver> getDelivers() {
+		return delivers;
+	}
+
+
+	/* não criar set para Collections
+	public void setDelivers(List<Deliver> delivers) {
+		this.delivers = delivers;
+	}
+	*/
 
 
 	@Override

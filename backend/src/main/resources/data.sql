@@ -70,3 +70,5 @@ INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Segund
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Parabéns. Código compilado sem erros', TIMESTAMP WITH TIME ZONE '2020-12-25T19:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Revise todo o seu código. Ele contém vários erros,', TIMESTAMP WITH TIME ZONE '2020-12-29T19:00:00Z', true, '/offers/2/resource/1/sections/1', 2);
 
+INSERT INTO tb_deliver (uri, moment, status, feedback, correct_Count, lesson_id, user_id, offer_id) 
+VALUES ('https://github.com/rafaelgauderio/java-plataforma-ensino',TIMESTAMP WITH TIME ZONE '2022-11-10T17:00:00Z',0,'Entrega sem feedBack ainda, pois está pendente', null,5,1,1);

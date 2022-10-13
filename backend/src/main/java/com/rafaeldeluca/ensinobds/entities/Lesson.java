@@ -1,7 +1,9 @@
 package com.rafaeldeluca.ensinobds.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /*SuperClasse Lesson (aula)
@@ -51,10 +54,11 @@ public abstract class Lesson implements Serializable{
 		joinColumns = @JoinColumn( name = "lesson_id"),
 		inverseJoinColumns = { @JoinColumn(name = "user_id"), @JoinColumn(name ="offer_id")
 		}
-	)
-	
-	
+	)	
 	private Set<Enrollment> enrollmentsDone = new HashSet<Enrollment>();
+	
+	@OneToMany(mappedBy= "lesson")
+	private List<Deliver> deliveries = new ArrayList<Deliver>();
 	
 	public Lesson () {
 		
@@ -104,6 +108,16 @@ public abstract class Lesson implements Serializable{
 	public Set<Enrollment> getEnrollmentsDone() {
 		return enrollmentsDone;
 	}
+
+	public List<Deliver> getDeliveries() {
+		return deliveries;
+	}
+
+	/* Não fazer método set para Colletcion
+	public void setDeliveries(List<Deliver> deliveries) {
+		this.deliveries = deliveries;
+	}
+	*/
 
 	@Override
 	public int hashCode() {
