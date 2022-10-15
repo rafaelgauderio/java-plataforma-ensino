@@ -1,5 +1,9 @@
 package com.rafaeldeluca.ensinobds.repositories;
 
-public interface SectionRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.rafaeldeluca.ensinobds.entities.Section;
+
+public interface SectionRepository extends JpaRepository<Section, Long>{
 
 }

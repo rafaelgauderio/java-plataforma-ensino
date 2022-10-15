@@ -1,5 +1,9 @@
 package com.rafaeldeluca.ensinobds.repositories;
 
-public class NotificationRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.rafaeldeluca.ensinobds.entities.Notification;
+
+public interface NotificationRepository extends JpaRepository <Notification, Long> {
 
 }

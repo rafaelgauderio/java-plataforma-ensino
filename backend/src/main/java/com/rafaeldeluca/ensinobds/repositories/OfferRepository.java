@@ -1,5 +1,9 @@
 package com.rafaeldeluca.ensinobds.repositories;
 
-public class OfferRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.rafaeldeluca.ensinobds.entities.Offer;
+
+public interface OfferRepository extends JpaRepository <Offer, Long> {
 
 }

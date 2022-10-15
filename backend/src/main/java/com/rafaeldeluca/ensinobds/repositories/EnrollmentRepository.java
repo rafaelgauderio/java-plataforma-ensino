@@ -1,5 +1,10 @@
 package com.rafaeldeluca.ensinobds.repositories;
 
-public interface EnrollmentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.rafaeldeluca.ensinobds.entities.Enrollment;
+import com.rafaeldeluca.ensinobds.entities.pk.EnrollmentPrimaryKey;
+
+public interface EnrollmentRepository extends JpaRepository<Enrollment, EnrollmentPrimaryKey >{
 
 }

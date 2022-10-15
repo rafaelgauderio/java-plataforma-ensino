@@ -1,5 +1,9 @@
 package com.rafaeldeluca.ensinobds.repositories;
 
-public class DeliverRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.rafaeldeluca.ensinobds.entities.Deliver;
+
+public interface DeliverRepository extends JpaRepository <Deliver, Long>{
 
 }
