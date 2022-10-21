@@ -176,6 +176,16 @@ public class User implements Serializable, UserDetails {
 	}
 	
 	
+	public boolean hasHole(String roleName) {
+		
+		for (Role role : roles) {
+			if(role.getAuthority().equals(roleName)) {
+				return true;
+			}
+		}
+		// Se percorrer todo o for e não encontrar a Role, então o usuário não possui esse Role		
+		return false;
+	}
 	
 	
 
