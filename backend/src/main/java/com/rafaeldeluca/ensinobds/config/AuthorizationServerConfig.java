@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -47,6 +48,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Autowired
 	private JwtTokenEnhancer tokenEnhancer;	
 	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
+	
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 		
@@ -61,8 +66,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.withClient(clientId)
 		.secret(bcryptpasswordEncoder.encode(clientSecret))
 		.scopes("read","write")
-		.authorizedGrantTypes("password")
-		.accessTokenValiditySeconds(jwtDuration); //24 horas
+		.authorizedGrantTypes("password", "refresh_token") //refresh token é um token que é usado para fazer um novo login
+		.accessTokenValiditySeconds(jwtDuration) //24 horas
+		.refreshTokenValiditySeconds(jwtDuration);
 				
 	}
 
@@ -75,7 +81,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		endpoints.authenticationManager(authenticationManager)
 		.tokenStore(tokenstore)
 		.accessTokenConverter(accessTokenConverter)
-		.tokenEnhancer(tokenChain);
+		.tokenEnhancer(tokenChain)
+		.userDetailsService(userDetailsService);
 	}
 
 	
