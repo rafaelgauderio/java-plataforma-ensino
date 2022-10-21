@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.rafaeldeluca.ensinobds.services.exceptions.DataBaseException;
+import com.rafaeldeluca.ensinobds.services.exceptions.ForbiddenException;
 import com.rafaeldeluca.ensinobds.services.exceptions.ResourceNotFoundException;
+import com.rafaeldeluca.ensinobds.services.exceptions.UnauthorizedException;
 
 //permite que essa classe intercepte alguma exceção que acontecer
 @ControllerAdvice
@@ -63,6 +65,20 @@ public class ResourceExceptionHandler {
 		
 		
 		return ResponseEntity.status(status).body(err);
+	}
+	
+	@ExceptionHandler(ForbiddenException.class)
+	public ResponseEntity<OAuthCustomError> forbiden(ForbiddenException error, HttpServletRequest request) {
+		
+		OAuthCustomError err = new OAuthCustomError("Forbidden", error.getMessage());
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(err); // erro 403
+	}
+	
+	@ExceptionHandler(UnauthorizedException.class)
+	public ResponseEntity<OAuthCustomError> unauthorized(UnauthorizedException error, HttpServletRequest request) {
+		
+		OAuthCustomError err = new OAuthCustomError("Unauthorized", error.getMessage());
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(err); //erro 401
 	}
 	
 	
