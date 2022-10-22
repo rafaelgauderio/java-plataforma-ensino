@@ -31,7 +31,7 @@ public class Deliver implements  Serializable {
 	private Instant moment;
 	private DeliverStatus status;
 	private String feedback;
-	private Integer correctCount;
+	private Integer correctCount; //quantas questoes o aluno acertou
 	
 	@ManyToOne
 	@JoinColumn(name="lesson_id")
