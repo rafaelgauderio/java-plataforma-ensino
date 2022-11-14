@@ -3,11 +3,16 @@ package com.rafaeldeluca.ensinobds.repositories;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+<<<<<<< HEAD
 import org.springframework.data.jpa.repository.Query;
+=======
+import org.springframework.stereotype.Repository;
+>>>>>>> 44d96bcf57447f4539d76a83f02509085fd2e1fc
 
 import com.rafaeldeluca.ensinobds.entities.Notification;
 import com.rafaeldeluca.ensinobds.entities.User;
 
+@Repository
 public interface NotificationRepository extends JpaRepository <Notification, Long> {
 	
 	//método para buscar as notificações paginadas do usuário 
