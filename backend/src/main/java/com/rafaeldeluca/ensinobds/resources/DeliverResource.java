@@ -17,8 +17,7 @@ import com.rafaeldeluca.ensinobds.services.DeliverService;
 public class DeliverResource {
 	
 	@Autowired
-	private DeliverService deliverService;
-	
+	private DeliverService deliverService;	
 	
 	//somente o instrutor e admin podem corrigir as tarefas, aluno não está autorizado a acessar esse endPoint
 	@PreAuthorize("hasAnyRole('ADMIN','INSTRUCTOR')")

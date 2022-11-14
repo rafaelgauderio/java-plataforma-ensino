@@ -19,11 +19,11 @@ public class NotificationService {
 	@Autowired
 	private AuthService authService;
 	
-	public Page<NotificationDTO> notificationsForCurrentUser(Pageable pageable) {
+	public Page<NotificationDTO> notificationsForCurrentUser(boolean unreadOnly, Pageable pageable) {
 		
 		User user = authService.authenticated();
 		//fazer uma busca no database das notificações paginadas desse usuário.
-		Page<Notification> page = notificationRepository.findByUser(user, pageable);
+		Page<Notification> page = notificationRepository.find(user,unreadOnly, pageable);
 		return page.map( x -> new NotificationDTO(x));
 	}
 	

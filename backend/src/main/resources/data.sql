@@ -66,7 +66,7 @@ INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
 INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
 
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Primeiro feedback de tarefa: favor revisar a classe User', TIMESTAMP WITH TIME ZONE '2022-12-24T16:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
-INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Segundo feedback da tarefa: favor alterar a versão do spring no arquivo pow', TIMESTAMP WITH TIME ZONE '2020-12-25T17:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Segundo feedback da tarefa: favor alterar a versão do spring no arquivo pow', TIMESTAMP WITH TIME ZONE '2020-12-25T17:00:00Z', false, '/offers/1/resource/1/sections/1', 1);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Parabéns. Código compilado sem erros', TIMESTAMP WITH TIME ZONE '2020-12-25T19:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Revise todo o seu código. Ele contém vários erros,', TIMESTAMP WITH TIME ZONE '2020-12-29T19:00:00Z', true, '/offers/2/resource/1/sections/1', 2);
 
